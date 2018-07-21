@@ -11,13 +11,13 @@
     $('.js-info-btn').on('click', function(){
       const id = $(this).data('id');
       $.get("/products/" + id + "/description", function(data){
-        $(`#description-${id}`).text(data);
+        $("#description-" + id).text(data);
       });
       $.get("/products/" + id + "/inventory", function(data){
         if (data === 'true') {
-          $(`#description-${id}`).after("<p>Available</p>");
+          $("#description-" + id).after("<p>Available</p>");
         } else {
-          $(`#description-${id}`).after("<p>Sold Out</p>");
+          $("#description" + id).after("<p>Sold Out</p>");
         }
       });
     });
