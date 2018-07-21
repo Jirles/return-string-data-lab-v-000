@@ -5,23 +5,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript">
-    $(function(){
-      $('.js-info-btn').on('click', function(){
-        const id = $(this).data('id');
-        $.get(`/products/${id}/description`, function(data){
-          $(`#description-${id}`).text(data);
-        });
-        $.get(`/products/${id}/inventory`, function(data){
-          if (data === 'true') {
-            $(`#description-${id}`).after("<p>Available</p>");
-          } else {
-            $(`#description-${id}`).after("<p>Sold Out</p>");
-          }
-        });
-      });
-    });
-  </script>
 </head>
 <body>
 
